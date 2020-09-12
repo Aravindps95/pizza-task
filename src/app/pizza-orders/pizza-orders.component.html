@@ -1,0 +1,66 @@
+<div class="order-container">
+  <div *ngIf="displaySpinner" class="spinner_overlay">
+    <mat-spinner class="order-spinner"></mat-spinner>
+  </div>
+  <div class="mat-elevation-z8 orders-box">
+    <div *ngIf="initialLoadIndicatior" class="table-box">
+      <table mat-table [dataSource]="tableDataSourse" class="mat-elevation-z8">
+        <ng-container matColumnDef="orderNumber">
+          <th mat-header-cell class="ws-10" *matHeaderCellDef>No.</th>
+          <td mat-cell *matCellDef="let orderData">
+            {{ orderData.orderNumber }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="customerName">
+          <th mat-header-cell class="ws-20" *matHeaderCellDef>Customer Name</th>
+          <td mat-cell *matCellDef="let orderData">
+            {{ orderData.customerName }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="numberOfItems">
+          <th mat-header-cell class="ws-20" *matHeaderCellDef>No Of Items</th>
+          <td mat-cell *matCellDef="let orderData">
+            {{ orderData.numberOfItems }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="totalPrice">
+          <th mat-header-cell class="ws-20" *matHeaderCellDef>Total Amount</th>
+          <td mat-cell *matCellDef="let orderData">
+            {{ orderData.totalPrice | currency: "&#8377;" }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell class="ws-20" *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let orderData" class="order-status">
+            {{ orderData.status }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let orderData">
+            <button
+              [disabled]="orderData.status === 'Ready To Serve'"
+              mat-raised-button
+              color="primary"
+              (click)="$event.stopPropagation()"
+              (click)="changeOrderStatus(orderData)"
+            >
+              Change status
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="orderDetails"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: orderDetails"
+          (click)="displayDeliveryDetails(row)"
+        ></tr>
+      </table>
+      <mat-paginator
+        [pageSizeOptions]="[2, 10, 20]"
+        showFirstLastButtons
+      ></mat-paginator>
+    </div>
+  </div>
+</div>

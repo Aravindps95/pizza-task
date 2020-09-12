@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <h1 mat-dialog-title>Delivery Details</h1>
+</mat-toolbar>
+<div mat-dialog-content class="order-details">
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      <div class="item-container"></div>
+      <p class="item-label">Item Name:</p>
+      <p class="item-desc">{{ data.itemsName }}</p>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <p class="item-label">Customer Name:</p>
+      <p class="item-desc">{{ data.customerName }}</p>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <p class="item-label">Price:</p>
+      <p class="item-desc">{{ data.price | currency: "&#8377;" }}</p>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <p class="item-label">Total Amount:</p>
+      <p class="item-desc">{{ data.totalPrice | currency: "&#8377;" }}</p>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <p class="item-label">Delivery Address:</p>
+      <p class="item-desc">{{ data.deliveryAddress }}</p>
+    </mat-list-item>
+  </mat-list>
+</div>
+<div class="click-me">
+  <button mat-raised-button color="primary" [mat-dialog-close] cdkFocusInitial>
+    OK
+  </button>
+</div>

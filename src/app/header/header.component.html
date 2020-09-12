@@ -1,0 +1,13 @@
+<!-- Display Toolbar for Orders login and logout buttons-->
+<mat-toolbar color="primary"
+  ><span> <a class = "orders-title">Orders</a></span>
+  <span class="for-time"></span>
+  <ul>
+    <li>
+      <a *ngIf="!isAuthenticated" mat-button (click)="toggleState()">Login</a>
+    </li>
+    <li>
+      <a *ngIf="isAuthenticated" mat-button (click)="toggleState()">Log Out</a>
+    </li>
+  </ul>
+</mat-toolbar>
