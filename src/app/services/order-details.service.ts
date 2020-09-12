@@ -40,8 +40,7 @@ export class OrderDetailsService {
       price: 200,
       totalPrice: 800,
       status: 'Order Received',
-      deliveryAddress:
-        'House No 36,Electronic city phase 2, Bangalore',
+      deliveryAddress: 'House No 36,Electronic city phase 2, Bangalore',
     },
     {
       orderNumber: 4,
@@ -62,8 +61,7 @@ export class OrderDetailsService {
       price: 220,
       totalPrice: 440,
       status: 'Order Received',
-      deliveryAddress:
-        'Flat D101, Sriram sygnia, neeladri road, Bangalore',
+      deliveryAddress: 'Flat D101, Sriram sygnia, neeladri road, Bangalore',
     },
   ];
   constructor() {}

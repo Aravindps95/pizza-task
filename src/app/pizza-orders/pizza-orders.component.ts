@@ -39,6 +39,7 @@ export class PizzaOrdersComponent implements OnInit {
 
   /**
    * Oninit retrieves order details from order-details service and assigns the same to ordersList property
+   * Used setTimeOut() to mimic an http call
    */
   ngOnInit(): void {
     this.displaySpinner = true;
@@ -63,6 +64,7 @@ export class PizzaOrdersComponent implements OnInit {
 
   /**
    * Retrieves the currently selected row from the table and opens the dialog to display the current order/delivery details
+   * Used setTimeOut() to mimic an http call
    * @param selectedOrder currently selected row(order) from the table
    */
   displayDeliveryDetails(selectedOrder) {
